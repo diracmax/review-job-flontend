@@ -6,5 +6,26 @@
         "id": 1,
         "name": "時給1176円を目指して",
         "code": "giahidhfidajfdjfodkfpf"
+    },
+    "groups":
+    {
+        "groups": [
+                    {
+                        "id": 1,
+                        "name": "時給1176円を目指して",
+                        "code": "giahidhfidajfdjfodkfpf"
+                    },
+                    {
+                        "id": 2,
+                        "name": "時給5000円を目指して",
+                        "code": "giahidhfidajfddkfpf"
+                    },
+                    {
+                        "id": 3,
+                        "name": "時給80000円を目指して",
+                        "code": "ghfidajfdjfodkfpf"
+                    }
+                ]
     }
+    
 }

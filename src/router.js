@@ -4,6 +4,7 @@ import UserJobList from './components/pages/UserJobList.vue'
 import JobContent from './components/pages/JobContent.vue'
 import CategorySearch from './components/pages/CategorySearch.vue'
 import ReviewPost from './components/pages/ReviewPost.vue'
+import SelectGroup from './components/pages/SelectGroup'
 
 
 const routes = [
@@ -32,6 +33,11 @@ const routes = [
     name: 'ReviewPost',
     component: ReviewPost,
   },
+  {
+    path: '/groups',
+    name: 'SelectGroup',
+    component: SelectGroup,
+  }
 ]
 
 const router = createRouter({
