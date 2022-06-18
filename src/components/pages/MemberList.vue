@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import client from "../../api_client";
   export default {
   name: 'MemberList',
   props: ["groupId"],
@@ -21,7 +21,7 @@ import axios from 'axios';
         }
     },
   mounted: function () {
-    axios.get(`http://localhost:3000/api/groups/${this.groupId}/members`)
+    client.get(`/api/groups/${this.groupId}/members`)
             .then(response => this.members=response.data.members)
             .catch(error => console.log(error))
   },

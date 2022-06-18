@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import client from "../../api_client";
   export default {
   name: 'SelectGroup',
   props: ["groupId"],
@@ -18,7 +18,7 @@
         }
     },
   mounted: function () {
-    axios.get('http://localhost:3000/groups')
+    client.get('/groups')
             .then(response => this.groups=response.data.groups)
             .catch(error => console.log(error))
   }
