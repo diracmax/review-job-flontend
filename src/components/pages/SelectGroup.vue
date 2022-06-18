@@ -1,8 +1,7 @@
 <template>
     <div class="title">グループを選択してください</div>
     <div class="class-content" v-for="g in groups" v-bind:key="g.id">
-      <router-link to="/groups/1/members">
-      <!-- <router-link to="{name:'Members',params:{groupId:g.id}}"> -->
+      <router-link :to="{name:'Members',params:{groupId:g.id}}">
           <div class="class-name">{{g.name}}</div>
       </router-link>
     </div>
