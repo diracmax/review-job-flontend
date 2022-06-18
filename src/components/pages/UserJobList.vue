@@ -1,16 +1,25 @@
 <template>
-    <div>仕事リスト</div>
-    <review-overview></review-overview>
+    <div class="title">仕事リスト</div>
+    <div class="job-list" v-for="r in reviews" v-bind:key="r.id">
+        <h1 class="review-info">{{r.name}}</h1>
+        <h2 class="category">カテゴリー: {{r.category_name}}</h2>
+    </div>
 </template>
 
 <script>
-import ReviewOverview from '../modules/ReviewOverview';
+import axios from 'axios';
 export default {
-  components: {
-    ReviewOverview
-  },
   name: 'UserJobList',
-  props: {
+  props: ["groupId"],
+  data() {
+        return{
+          reviews: null
+        }
+    },
+  mounted: function () {
+    axios.get(`http://localhost:3000/api/groups/${this.groupId}/reviews`)
+            .then(response => this.reviews=response.data.reviews)
+            .catch(error => console.log(error))
   }
 }
 </script>

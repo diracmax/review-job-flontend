@@ -19,6 +19,7 @@ const routes = [
   {
     path: '/groups/:groupId/members/jobs',
     name: 'UserJobs',
+    props: true,
     component: UserJobList,
   },
   {
