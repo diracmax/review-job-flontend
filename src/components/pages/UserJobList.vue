@@ -1,4 +1,5 @@
 <template>
+    <my-header></my-header>
     <div class="title">仕事リスト</div>
     <div class="job-list" v-for="r in reviews" v-bind:key="r.id">
         <router-link :to="{name:'JobContent',params:{groupId:this.groupId,reviewId:r.id}}">
@@ -10,9 +11,13 @@
 
 <script>
 import client from "../../api_client";
+import MyHeader from '../modules/MyHeader.vue'
 export default {
   name: 'UserJobList',
   props: ["groupId"],
+  components: {
+    MyHeader
+  },
   data() {
         return{
           reviews: null

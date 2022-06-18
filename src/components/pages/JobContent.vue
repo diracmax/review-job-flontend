@@ -1,4 +1,5 @@
 <template>
+    <my-header></my-header>
     <div>バイト内容</div>
     <div>{{review.name}}</div>
     <div>{{review.note}}</div>
@@ -6,9 +7,13 @@
 
 <script>
 import client from "../../api_client";
+import MyHeader from '../modules/MyHeader.vue'
 export default {
   name: 'JobContent',
   props: ["groupId", "reviewId"],
+  components: {
+    MyHeader
+  },
   data() {
         return{
           review: null

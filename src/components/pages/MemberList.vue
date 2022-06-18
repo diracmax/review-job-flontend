@@ -1,4 +1,5 @@
 <template>
+    <my-header></my-header>
     <div class="title">メンバー一覧</div>
     <div class="member-list" v-for="m in members" v-bind:key="m.id">
       <router-link :to="{name:'UserJobs',params:{groupId:this.groupId}}">
@@ -12,9 +13,13 @@
 
 <script>
 import client from "../../api_client";
+import MyHeader from '../modules/MyHeader.vue'
   export default {
   name: 'MemberList',
   props: ["groupId"],
+  components: {
+    MyHeader
+  },
   data() {
         return{
           members: null
