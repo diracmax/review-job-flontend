@@ -22,7 +22,7 @@ import axios from 'axios';
         }
     },
   mounted: function () {
-    axios.get('http://localhost:3000/api/groups/${this.groupId}/members')
+    axios.get(`http://localhost:3000/api/groups/${this.groupId}/members`)
             .then(response => this.members=response.data.members)
             .catch(error => console.log(error))
   },
@@ -52,6 +52,10 @@ import axios from 'axios';
   margin-left: 10px;
   text-decoration: none;
   font-size: 12px;
+}
+
+a {
+  text-decoration: none;
 }
 
 </style>
