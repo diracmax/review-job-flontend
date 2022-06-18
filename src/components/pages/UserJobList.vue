@@ -1,8 +1,10 @@
 <template>
     <div class="title">仕事リスト</div>
     <div class="job-list" v-for="r in reviews" v-bind:key="r.id">
-        <h1 class="review-info">{{r.name}}</h1>
-        <h2 class="category">カテゴリー: {{r.category_name}}</h2>
+        <router-link :to="{name:'JobContent',params:{groupId:this.groupId,reviewId:r.id}}">
+          <h1 class="review-info">{{r.name}}</h1>
+          <h2 class="category">カテゴリー: {{r.category_name}}</h2>
+        </router-link>
     </div>
 </template>
 
