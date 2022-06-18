@@ -1,8 +1,7 @@
 <template>
     <div class="title">メンバー一覧</div>
     <div class="member-list" v-for="m in members" v-bind:key="m.id">
-      <!-- <router-link to="/groups/:groupId/members/jobs"> -->
-      <router-link to="{name:'UserJobs',params:{groupId:this.groupId}}">
+      <router-link :to="{name:'UserJobs',params:{groupId:this.groupId}}">
         <h1 class="member-info">{{m.name}}</h1>
         <h2 class="post-number">バイト投稿数  {{m.review_counts}}</h2>
       </router-link>

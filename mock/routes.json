@@ -1,4 +1,5 @@
 {
     "/api/groups/1": "/group1",
-    "/api/groups/1/members": "/members"
+    "/api/groups/1/members": "/members",
+    "/api/groups/1/reviews": "/reviews"
 }
