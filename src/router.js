@@ -13,10 +13,11 @@ const routes = [
   {
     path: '/groups/:groupId/members',
     name: 'Members',
+    props: true,
     component: MemberList,
   },
   {
-    path: '/groups/:groupId/members/:userId/jobs',
+    path: '/groups/:groupId/members/jobs',
     name: 'UserJobs',
     component: UserJobList,
   },
