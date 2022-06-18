@@ -26,6 +26,22 @@
                         "code": "ghfidajfdjfodkfpf"
                     }
                 ]
+    },
+    "members":
+    {
+        "members":
+        [
+            {
+                "id": 1,
+                "name": "山田太郎",
+                "review_counts": 2
+            },
+            {
+                "id": 2,
+                "name": "川村花子",
+                "review_counts": 3
+            }
+        ]
     }
     
 }
