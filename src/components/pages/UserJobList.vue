@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import client from "../../api_client";
 export default {
   name: 'UserJobList',
   props: ["groupId"],
@@ -17,7 +17,7 @@ export default {
         }
     },
   mounted: function () {
-    axios.get(`http://localhost:3000/api/groups/${this.groupId}/reviews`)
+    client.get(`/api/groups/${this.groupId}/reviews`)
             .then(response => this.reviews=response.data.reviews)
             .catch(error => console.log(error))
   }
