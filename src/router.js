@@ -4,7 +4,10 @@ import UserJobList from './components/pages/UserJobList.vue'
 import JobContent from './components/pages/JobContent.vue'
 import CategorySearch from './components/pages/CategorySearch.vue'
 import ReviewPost from './components/pages/ReviewPost.vue'
-
+import SelectGroup from './components/pages/SelectGroup.vue'
+import GroupMenu from './components/pages/GroupMenu.vue'
+import JoinGroup from './components/pages/JoinGroup.vue'
+import CreateGroup from './components/pages/CreateGroup.vue'
 
 const routes = [
   {
@@ -31,6 +34,26 @@ const routes = [
     path: '/groups/:groupId/review',
     name: 'ReviewPost',
     component: ReviewPost,
+  },
+  {
+    path: '/groups',
+    name: 'SelectGroup',
+    component: SelectGroup,
+  },
+  {
+    path: '/groups/menu',
+    name: 'GroupMenu',
+    component: GroupMenu,
+  },
+  {
+    path: '/groups/join',
+    name: 'JoinGroup',
+    component: JoinGroup,
+  },
+  {
+    path: '/groups/make',
+    name: 'CreateGroup',
+    component: CreateGroup,
   },
 ]
 
