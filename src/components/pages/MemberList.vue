@@ -1,65 +1,71 @@
 <template>
-    <my-header></my-header>
-    <div class="title">メンバー一覧</div>
-    <div class="member-list" v-for="m in members" v-bind:key="m.id">
-      <router-link :to="{name:'UserJobs',params:{groupId:this.groupId}}">
-        <h1 class="member-info">{{m.name}}</h1>
-        <h2 class="post-number">バイト投稿数  {{m.review_counts}}</h2>
-      </router-link>
+  <my-header></my-header>
+  <div class="title">メンバー一覧</div>
+  <div class="container">
+    <div class="row">
+      <div
+        class="row"
+        style="justify-content: center"
+        v-for="m in members"
+        v-bind:key="m.id"
+      >
+        <router-link
+          class="card border-dark text-body col-6"
+          style="text-decoration: none; margin: 10px 0"
+          :to="{ name: 'UserJobs', params: { groupId: this.groupId } }"
+        >
+          <div class="card-body">
+            <div class="card-title fs-4">{{ m.name }}</div>
+            <div class="card-text mb-2 text-muted">
+              バイト投稿数<span style="padding-left: 20px"
+                >{{ m.review_counts }}件</span
+              >
+            </div>
+          </div>
+        </router-link>
+      </div>
     </div>
 
-    <button class="invite-code" @click="getCode">グループ招待コード</button>
+    <button class="btn btn-secondary float-end" @click="getCode">
+      グループ招待コード
+    </button>
+  </div>
 </template>
 
 <script>
 import client from "../../api_client";
-import MyHeader from '../modules/MyHeader.vue'
-  export default {
-  name: 'MemberList',
+import MyHeader from "../modules/MyHeader.vue";
+export default {
+  name: "MemberList",
   props: ["groupId"],
   components: {
-    MyHeader
+    MyHeader,
   },
   data() {
-        return{
-          members: null
-        }
-    },
-  mounted: function () {
-    client.get(`/api/groups/${this.groupId}/members`)
-            .then(response => this.members=response.data.members)
-            .catch(error => console.log(error))
+    return {
+      members: null,
+    };
   },
-  methods:{
-    getCode: function(){
-      alert('招待コードをコピーしました！')
-    }
-  }
-}
+  mounted: function () {
+    client
+      .get(`/api/groups/${this.groupId}/members`)
+      .then((response) => (this.members = response.data.members))
+      .catch((error) => console.log(error));
+  },
+  methods: {
+    getCode: function () {
+      alert("招待コードをコピーしました！");
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.title{
- text-align: center;
- font-size: 32px;
- margin-top: 50px;
- background-color: #DDDDDD;
+.title {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 50px;
+  background-color: #dddddd;
 }
-.member-list{
-  border: 1px solid black;
-  /* padding-top: 15px;
-  padding-bottom: 15px; */
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-right: 150px;
-  margin-left: 10px;
-  text-decoration: none;
-  font-size: 12px;
-}
-
-a {
-  text-decoration: none;
-}
-
 </style>
