@@ -19,17 +19,20 @@ const routes = [
   {
     path: '/groups/:groupId/members',
     name: 'Members',
+    props: true,
     component: MemberList,
   },
   {
-    path: '/groups/:groupId/members/:userId/jobs',
+    path: '/groups/:groupId/members/jobs',
     name: 'UserJobs',
+    props: true,
     component: UserJobList,
   },
   {
-    path: '/groups/:groupId/members/:userId/jobs/:jobId',
+    path: '/groups/:groupId/reviews/:reviewId',
     name: 'JobContent',
     component: JobContent,
+    props: true
   },
   {
     path: '/category',

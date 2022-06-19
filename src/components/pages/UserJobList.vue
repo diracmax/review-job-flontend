@@ -1,16 +1,32 @@
 <template>
-    <div>仕事リスト</div>
-    <review-overview></review-overview>
+    <my-header></my-header>
+    <div class="title">仕事リスト</div>
+    <div class="job-list" v-for="r in reviews" v-bind:key="r.id">
+        <router-link :to="{name:'JobContent',params:{groupId:this.groupId,reviewId:r.id}}">
+          <h1 class="review-info">{{r.name}}</h1>
+          <h2 class="category">カテゴリー: {{r.category_name}}</h2>
+        </router-link>
+    </div>
 </template>
 
 <script>
-import ReviewOverview from '../modules/ReviewOverview';
+import client from "../../api_client";
+import MyHeader from '../modules/MyHeader.vue'
 export default {
-  components: {
-    ReviewOverview
-  },
   name: 'UserJobList',
-  props: {
+  props: ["groupId"],
+  components: {
+    MyHeader
+  },
+  data() {
+        return{
+          reviews: null
+        }
+    },
+  mounted: function () {
+    client.get(`/api/groups/${this.groupId}/reviews`)
+            .then(response => this.reviews=response.data.reviews)
+            .catch(error => console.log(error))
   }
 }
 </script>

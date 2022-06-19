@@ -1,27 +1,28 @@
 <template>
     <div class="title">グループを選択してください</div>
     <div class="class-content" v-for="g in groups" v-bind:key="g.id">
-      <!-- <div class="class-name"><router-link to="/groups/:groupId/members">{{g.name}}</router-link></div> -->
-      <router-link to="/groups/:groupId/members"><div class="class-name">{{g.name}}</div></router-link>
+      <router-link :to="{name:'Members',params:{groupId:g.id}}">
+          <div class="class-name">{{g.name}}</div>
+      </router-link>
     </div>
 </template>
 
 <script>
-  import axios from 'axios';
+  import client from "../../api_client";
   export default {
   name: 'SelectGroup',
-  props: {
-  },
+  props: ["groupId"],
   data() {
         return{
           groups: null
         }
     },
   mounted: function () {
-    axios.get('http://localhost:3000/groups')
+    client.get('/groups')
             .then(response => this.groups=response.data.groups)
             .catch(error => console.log(error))
   }
+
 }
 </script>
 
