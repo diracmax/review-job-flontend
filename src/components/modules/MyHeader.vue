@@ -1,7 +1,7 @@
 <template>
     <div class="header-content">
         <div class="header-left">
-            <h1>アルバイト体験記</h1>
+            <h1>神バイトを求めて</h1>
         </div>
         <div class="header-right">
             <div class="nav-item">
@@ -45,6 +45,7 @@ h1 {
 .header-content {
     display: flex;
     justify-content: space-between;
+    margin-top: 0.2rem;
 }
 .header-left {
     margin-left: 2rem;
