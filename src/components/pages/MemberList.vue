@@ -65,7 +65,7 @@ export default {
 .title {
   text-align: center;
   font-size: 32px;
-  margin-top: 50px;
+  margin-top: 10px;
   background-color: #dddddd;
 }
 </style>
