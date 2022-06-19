@@ -31,7 +31,7 @@ export default {
   },
   mounted: function () {
     client
-      .get("/groups")
+      .get("/api/groups")
       .then((response) => (this.groups = response.data.groups))
       .catch((error) => console.log(error));
   },
