@@ -8,8 +8,14 @@ import SelectGroup from './components/pages/SelectGroup.vue'
 import GroupMenu from './components/pages/GroupMenu.vue'
 import JoinGroup from './components/pages/JoinGroup.vue'
 import CreateGroup from './components/pages/CreateGroup.vue'
+import LoginForm from './components/pages/LoginForm.vue'
 
 const routes = [
+  {
+    path: '/login',
+    name: 'LoginForm',
+    component: LoginForm,
+  },
   {
     path: '/groups/:groupId/members',
     name: 'Members',
