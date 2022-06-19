@@ -1,18 +1,52 @@
 <template>
-  <div>
+  <div class="container">
     <div class="title">ログイン</div>
-    <form @submit.prevent="signin" class="form-group">
-      <div class="form">
-        <input v-model="id" placeholder="ユーザーID" />
+    <form @submit.prevent="signin">
+      <div class="row align-items-center form">
+        <div class="col-2" style="text-align: center">
+          <label for="inputId" class="col-form-label">ID</label>
+        </div>
+        <div class="col-auto">
+          <input
+            v-model="id"
+            placeholder="ユーザーID"
+            type="text"
+            id="inputId"
+            class="form-control"
+          />
+        </div>
       </div>
-      <div class="form">
-        <input type="password" v-model="password" placeholder="パスワード" />
+      <div class="row align-items-center form">
+        <div class="col-2" style="text-align: center">
+          <label for="inputPassword" class="col-form-label">パスワード</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="password"
+            id="inputPassword"
+            class="form-control"
+            v-model="password"
+            placeholder="パスワード"
+            aria-describedby="passwordHelpInline"
+          />
+        </div>
       </div>
-      <div class="form">
-        <button :disabled="!isCompleted" type="submit">ログイン</button>
-      </div>
-      <div v-if="err" style="color: red">
+      <div v-if="err" class="text-danger err">
         {{ err }}
+      </div>
+      <div class="row align-items-center" style="justify-content: center">
+        <a class="btn btn-link fs-6" style="margin-bottom: 5px"
+          >新規登録はこちら</a
+        >
+        <div class="d-grid col-3">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            :disabled="!isCompleted"
+          >
+            ログイン
+          </button>
+        </div>
       </div>
     </form>
   </div>
@@ -44,8 +78,9 @@ export default {
       client
         .post("/api/signin", data)
         .then((res) => {
-          if (res.status == 200) {
-            this.$router.push("/groups");
+          // FIXME: statusを200にする
+          if (res.status == 201) {
+            this.$router.push("/groups/menu");
           }
         })
         .catch((err) => {
@@ -62,12 +97,16 @@ export default {
 .title {
   text-align: center;
   font-size: 32px;
-  margin-top: 50px;
+  margin: 50px 0;
 }
-.form-group {
+
+.form {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.err {
   text-align: center;
-}
-.form-group > .form {
-  padding: 10px;
+  padding: 10px 0;
 }
 </style>

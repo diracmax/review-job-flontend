@@ -3,5 +3,6 @@
     "/api/groups/1/members": "/members",
     "/api/groups/1/reviews": "/reviews",
     "/api/groups/1/reviews/1": "/review1",
-    "/api/groups": "/groups"
+    "/api/groups": "/groups",
+    "/api/signin": "/signin"
 }
