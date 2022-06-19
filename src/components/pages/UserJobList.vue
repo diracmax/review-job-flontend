@@ -1,7 +1,7 @@
 <template>
     <my-header></my-header>
     <div class="title">仕事リスト</div>
-
+    <div class="job-content">
     <li class="job-list" v-for="r in reviews" v-bind:key="r.id">
         <router-link class="routerLink" :to="{name:'JobContent',params:{groupId:this.groupId,reviewId:r.id}}">
           
@@ -12,6 +12,7 @@
 
         </router-link>
     </li>
+    </div>
 
     <div class="item">
       <router-link class="btn btn-primary" role="button" :to="{name:'Members',params:{groupId:this.groupId}}">戻る</router-link>
@@ -91,5 +92,8 @@ li{
   margin: 1em 5em;
   text-align: right;
 }
-
+.job-content {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
 </style>
