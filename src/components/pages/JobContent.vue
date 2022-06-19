@@ -1,8 +1,16 @@
 <template>
     <my-header></my-header>
-    <div>バイト内容</div>
-    <div>{{review.name}}</div>
-    <div>{{review.note}}</div>
+    <div class="container">
+      <div>
+        <p>カテゴリー: {{review.category_name}}</p>
+        <h1 class="job-title">{{review.name}}</h1>
+      </div>
+      <div class="job-content">
+        <p>内容:</p>
+        <p>{{review.note}}</p>
+      </div>
+      <p>星: {{review.star}}</p>
+    </div>
 </template>
 
 <script>
@@ -29,4 +37,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container {
+  width: 65%;
+  margin-top: 2rem;
+}
+.job-content {
+  margin-top: 2rem;
+}
+.job-title {
+  border-bottom: 0.05rem solid #d8d8d8;
+  padding-block: 0.5rem;
+}
+p {
+  font-size:1.25rem;
+}
 </style>

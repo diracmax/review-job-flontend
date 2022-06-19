@@ -78,7 +78,8 @@ export default {
       client
         .post("/api/signin", data)
         .then((res) => {
-          if (res.status == 200) {
+          // FIXME: statusを200にする
+          if (res.status == 201) {
             this.$router.push("/groups/menu");
           }
         })

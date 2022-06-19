@@ -18,7 +18,7 @@
         }
     },
   mounted: function () {
-    client.get('/groups')
+    client.get('/api/groups')
             .then(response => this.groups=response.data.groups)
             .catch(error => console.log(error))
   }
