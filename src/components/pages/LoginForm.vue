@@ -9,7 +9,7 @@
         <div class="col-auto">
           <input
             v-model="id"
-            placeholder="ユーザーID"
+            placeholder="ユーザーID_test"
             type="text"
             id="inputId"
             class="form-control"
